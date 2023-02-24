@@ -10,7 +10,19 @@
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    height: 100px;
+    background-color: #131614;
+    color: #E3EEE7;
 }
+
+.navbar-brand {
+  padding-top: 20px;
+}
+
+.nav-link {
+  color: #E3EEE7;
+}
+
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
@@ -25,11 +37,11 @@
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #1abc9c;
+	background-color: #1B763B;
 }
 
 .footer p {
 	margin-top: 25px;
-	font-size: 12px;
+	font-size: 16px;
   color: #fff;
 }
