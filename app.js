@@ -33,10 +33,13 @@ app.get( "/compose", function( req, res ) {
 });
 
 app.post( "/compose", function( req, res ) {
-  title = req.body.postTitle;
-  post = req.body.postText;
-  console.log(title);
-  console.log(post);
+  const
+    post = {
+      title: req.body.postTitle,
+      content: req.body.postBody
+    };
+
+    console.log(post);
 });
 
 
