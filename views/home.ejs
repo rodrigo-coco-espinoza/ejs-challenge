@@ -1,5 +1,8 @@
 <%- include( "partials/header" ) -%>
 <h1>¡Hola! Hello! こんにちは！</h1>
-<p><%= startingContent -%></p>
+<p><%= startingContent %></p>
+<% posts.forEach( function( post, index ){ %>
+<%= JSON.stringify(post) %><br>
+<% }); %>
 
 <%- include( "partials/footer" ) -%>
