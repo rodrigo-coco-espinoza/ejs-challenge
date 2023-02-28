@@ -2,8 +2,11 @@
 <h1>¡Hola! Hello! こんにちは！</h1>
 <p><%= startingContent %></p>
 <% posts.forEach( function( post, index ){ %>
-<h1><%= post.title %></h1>
-<p><%= post.content %></p>
+  <h1><%= post.title %></h1>
+  <p>
+    <%= post.content.substring(0, 100) + " ..." %>
+    <a href="/posts/<%= post.title %>">Read more</a>
+  </p>
 <% }); %>
 
 <%- include( "partials/footer" ) -%>

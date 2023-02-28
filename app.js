@@ -4,6 +4,7 @@ const
   express = require( "express" ),
   bodyParser = require( "body-parser" ),
   ejs = require( "ejs" ),
+  _ = require( "lodash" );
   app = express(),
 
   posts = [];
@@ -19,7 +20,10 @@ app.use( express.static( "public" ));
 
 
 app.get( "/", function( req, res ) {
-  res.render("home", { startingContent: homeStartingContent, posts: posts });
+  res.render("home", {
+    startingContent: homeStartingContent,
+    posts: posts
+  });
 });
 
 app.get( "/about", function( req, res ) {
@@ -38,14 +42,23 @@ app.post( "/compose", function( req, res ) {
   const
     post = {
       title: req.body.postTitle,
-      content: req.body.postBody
+      content: req.body.postBody,
     };
 
   posts.push( post );
   res.redirect( "/" );
 });
 
-
+app.get( "/posts/:postName", function( req, res ) {
+  const
+    requestedTitle = _.lowerCase( req.params.postName );
+    requestedPost = posts.find( post => _.lowerCase( post.title ) === requestedTitle );
+  if ( requestedPost ) {
+    res.render( "post", {
+      post: requestedPost
+    });
+  }
+});
 
 
 app.listen( 3000, function() {
